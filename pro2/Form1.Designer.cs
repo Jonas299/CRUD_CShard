@@ -46,21 +46,26 @@
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeesDBDataSet1 = new pro2.employeesDBDataSet1();
             this.employeesTableAdapter1 = new pro2.employeesDBDataSet1TableAdapters.employeesTableAdapter();
+            this.idTxt = new System.Windows.Forms.TextBox();
+            this.employeesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeesDBDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idTxt = new System.Windows.Forms.TextBox();
-            this.employeesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.employeesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesDBDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesDBDataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // employeesGrid
@@ -75,7 +80,7 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.employeesGrid.ContextMenuStrip = this.contextMenuStrip1;
-            this.employeesGrid.DataSource = this.employeesBindingSource1;
+            this.employeesGrid.DataSource = this.employeesBindingSource2;
             this.employeesGrid.Location = new System.Drawing.Point(293, 12);
             this.employeesGrid.Name = "employeesGrid";
             this.employeesGrid.Size = new System.Drawing.Size(625, 426);
@@ -223,10 +228,51 @@
             // 
             this.employeesTableAdapter1.ClearBeforeFill = true;
             // 
+            // idTxt
+            // 
+            this.idTxt.Enabled = false;
+            this.idTxt.Location = new System.Drawing.Point(187, 22);
+            this.idTxt.Name = "idTxt";
+            this.idTxt.Size = new System.Drawing.Size(100, 20);
+            this.idTxt.TabIndex = 16;
+            this.idTxt.Visible = false;
+            // 
+            // employeesBindingSource1
+            // 
+            this.employeesBindingSource1.DataMember = "employees";
+            this.employeesBindingSource1.DataSource = this.employeesDBDataSet1;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editarToolStripMenuItem,
+            this.toolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "Eliminar";
+            this.toolStripMenuItem1.ToolTipText = "Eliminar";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // employeesDBDataSet1BindingSource
+            // 
+            this.employeesDBDataSet1BindingSource.DataSource = this.employeesDBDataSet1;
+            this.employeesDBDataSet1BindingSource.Position = 0;
+            // 
+            // employeesBindingSource2
+            // 
+            this.employeesBindingSource2.DataMember = "employees";
+            this.employeesBindingSource2.DataSource = this.employeesDBDataSet1BindingSource;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // nameEDataGridViewTextBoxColumn
@@ -259,35 +305,12 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "email";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // idTxt
+            // editarToolStripMenuItem
             // 
-            this.idTxt.Enabled = false;
-            this.idTxt.Location = new System.Drawing.Point(187, 22);
-            this.idTxt.Name = "idTxt";
-            this.idTxt.Size = new System.Drawing.Size(100, 20);
-            this.idTxt.TabIndex = 16;
-            this.idTxt.Visible = false;
-            // 
-            // employeesBindingSource1
-            // 
-            this.employeesBindingSource1.DataMember = "employees";
-            this.employeesBindingSource1.DataSource = this.employeesDBDataSet1;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem1.Text = "Eliminar";
-            this.toolStripMenuItem1.ToolTipText = "Eliminar";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -317,6 +340,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.employeesDBDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.employeesDBDataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,16 +373,19 @@
         private employeesDBDataSet1 employeesDBDataSet1;
         private System.Windows.Forms.BindingSource employeesBindingSource;
         private employeesDBDataSet1TableAdapters.employeesTableAdapter employeesTableAdapter1;
+        private System.Windows.Forms.TextBox idTxt;
+        private System.Windows.Forms.BindingSource employeesBindingSource1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.BindingSource employeesBindingSource2;
+        private System.Windows.Forms.BindingSource employeesDBDataSet1BindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.TextBox idTxt;
-        private System.Windows.Forms.BindingSource employeesBindingSource1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
     }
 }
 

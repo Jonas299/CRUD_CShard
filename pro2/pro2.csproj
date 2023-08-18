@@ -63,6 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="app\conection.cs" />
+    <Compile Include="app\Employees.cs" />
     <Compile Include="employeesDBDataSet11.cs">
       <DependentUpon>employeesDBDataSet11.xsd</DependentUpon>
     </Compile>
