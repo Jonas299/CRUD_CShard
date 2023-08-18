@@ -30,41 +30,47 @@ namespace pro2
 
         private void insertEmp()
         {
-            var conString = ConfigurationManager.ConnectionStrings["dbEmployees"].ConnectionString;
-            string name = nameTxt.Text.ToUpper().Trim();
-            string lastname = lastnameTxt.Text.ToUpper().Trim();
-            string birthday = birthdayTxt.Value.Date.ToString("yyyy/MM/dd");
-            string gender = genderTxt.Text;
-            string email = emailTxt.Text;
-
-            if (this.employeesClass.insertEmp(name, lastname, birthday, gender, email) > 0)
+            if (this.validateFields())
             {
-                MessageBox.Show("Empleado registrado");
-                this.readEmp();
-                this.cleanFields();
+                var conString = ConfigurationManager.ConnectionStrings["dbEmployees"].ConnectionString;
+                string name = nameTxt.Text.ToUpper().Trim();
+                string lastname = lastnameTxt.Text.ToUpper().Trim();
+                string birthday = birthdayTxt.Value.Date.ToString("yyyy/MM/dd");
+                string gender = genderTxt.Text;
+                string email = emailTxt.Text;
+
+                if (this.employeesClass.insertEmp(name, lastname, birthday, gender, email) > 0)
+                {
+                    MessageBox.Show("Empleado registrado");
+                    this.readEmp();
+                    this.cleanFields();
+                }
             }
         }
 
         private void updateEmp()
         {
-            string id = idTxt.Text;
-            string name = nameTxt.Text.ToUpper().Trim();
-            string lastname = lastnameTxt.Text.ToUpper().Trim();
-            string birthday = birthdayTxt.Value.Date.ToString("yyyy/MM/dd");
-            string gender = genderTxt.Text;
-            string email = emailTxt.Text;
+            if (this.validateFields()) 
+            {
+                string id = idTxt.Text;
+                string name = nameTxt.Text.ToUpper().Trim();
+                string lastname = lastnameTxt.Text.ToUpper().Trim();
+                string birthday = birthdayTxt.Value.Date.ToString("yyyy/MM/dd");
+                string gender = genderTxt.Text;
+                string email = emailTxt.Text;
 
-            if (this.employeesClass.updateEmp(id, name, lastname, birthday, gender, email) > 0)
-            {
-                MessageBox.Show("Empleado actualizado");
-                this.readEmp();
-                this.cleanFields();
-                btnEdit.Enabled = false;
-                btnOk.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("Ha ocurrido un error al momento de actualizar el registro", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (this.employeesClass.updateEmp(id, name, lastname, birthday, gender, email) > 0)
+                {
+                    MessageBox.Show("Empleado actualizado");
+                    this.readEmp();
+                    this.cleanFields();
+                    btnEdit.Enabled = false;
+                    btnOk.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error al momento de actualizar el registro", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -87,6 +93,25 @@ namespace pro2
             birthdayTxt.ResetText();
             genderTxt.ResetText();
             emailTxt.Text = string.Empty;
+        }
+
+        private bool validateFields()
+        {
+            if (nameTxt.Text != string.Empty
+                && lastnameTxt.Text != string.Empty
+                && birthdayTxt.Text != string.Empty
+                && emailTxt.Text != string.Empty
+                && genderTxt.Text != string.Empty
+                )
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Todos los campos son requeridos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
         }
 
         private void selectEdit()
