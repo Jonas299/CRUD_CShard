@@ -10,7 +10,7 @@ namespace pro2.app
     internal class conection
     {
 
-        public string getConection() 
+        protected string getConection() 
         {
             var conString = ConfigurationManager.ConnectionStrings["dbEmployees"].ConnectionString;
             return conString;

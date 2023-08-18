@@ -25,8 +25,7 @@ namespace pro2
 
         private void readEmp()
         {
-            Employees employees = new Employees();
-            employeesGrid.DataSource = employees.readEmp();
+            employeesGrid.DataSource = this.employeesClass.readEmp();
         }
 
         private void insertEmp()
